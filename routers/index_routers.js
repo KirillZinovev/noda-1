@@ -7,8 +7,11 @@ const register = require("../controllers/register");
 // });
 // router.post("/register", function (req, res) {});
 
-router.get("/register", register.form);
-router.post("/register", register.submit);
+router.get("/login", login.form);
+router.post("/login", login.submit);
+
+router.get("/entries", entries.list);
+router.post("/entry", entry.?);
 
 router.get("/login", function (req, res) {
   res.render("login.ejs");
