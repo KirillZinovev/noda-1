@@ -1,17 +1,18 @@
 const express = require("express");
 const router = express.Router();
 const register = require("../controllers/register");
+const entries = require("../controllers/entries");
 
 // router.get("/register", function (req, res) {
 //   res.render("register.ejs");
 // });
 // router.post("/register", function (req, res) {});
 
-router.get("/login", login.form);
-router.post("/login", login.submit);
+// router.get("/login", login.form);
+// router.post("/login", login.submit);
 
-router.get("/entries", entries.list);
-router.post("/entry", entry.?);
+router.get("/", entries.list);
+// router.post("/entry", entry.?);
 
 router.get("/login", function (req, res) {
   res.render("login.ejs");

@@ -34,3 +34,4 @@ class User {
     if (result) return user; //TODO check
   }
 }
+module.exports = User;
