@@ -1,5 +1,5 @@
 const sqlite = require("sqlite3").verbose();
-const db = new sqlite3.Database("test.sqlite");
+const db = new sqlite.Database("test.sqlite");
 const bcrypt = require("bcrypt");
 const sql =
   "CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL, age INTEGER NOT NULL )";
