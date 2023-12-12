@@ -4,6 +4,8 @@ const fs = require("fs");
 const path = require("path");
 const { nextTick } = require("process");
 const ejs = require("ejs");
+const userSession = require("./middleWare/user_session");
+const session = require("express-session");
 
 const app = express();
 const myRoutes = require("./routers/index_routers");
@@ -14,6 +16,13 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "css")));
 app.use(express.static(path.join(__dirname, "views")));
 
+app.use(
+  session({
+    secret: "aboba",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 app.use(
   "/css/bootstrap.css",
   express.static(
@@ -45,8 +54,6 @@ function logger(port, router) {
 }
 
 console.log(app.get("env"));
-
-
 
 app.use(favicon(__dirname + "/public/favicon.ico"));
 
