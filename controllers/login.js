@@ -4,11 +4,22 @@ exports.form = (req, res) => {
   res.render("loginForm", { title: "Login" });
 };
 
+// exports.submit = (req, res, next) => {
+//   User.findByEmail(req.body.email, (error, user) => {
+//     if (error) return next(error);
+//     if (user) {
+//       res.redirect("/");
+//     } else {
+//       console.log("Такого пользователя не существует");
+//     }
+//   });
+// };
+
 exports.submit = (req, res, next) => {
-  User.authentificate(req.body.loginForm, (err, data) => {
-    if (err) return next(err);
+  User.authentificate(req.body.loginForm, (error, data) => {
+    if (error) return next(error);
     if (!data) {
-      console.log("имя или пароль неверны");
+      console.log("Логин или пароль не верны");
       res.redirect("back");
     } else {
       req.session.userEmail = data.email;
@@ -17,4 +28,5 @@ exports.submit = (req, res, next) => {
     }
   });
 };
-exports.logout = function (req, res) {};
+
+exports.lodout = function (req, res) {};

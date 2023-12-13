@@ -15,7 +15,7 @@
     <section class="login-content">
         <div class="container-fluid">
         <h1 class="text-center">Авторизация</h1>
-        <form class="container needs-validation" novalidate="" action="/login" method="post">
+        <form class="container needs-validation" action="/login" method="post" novalidate="">
           <div class="row g-2 g-5">
             <div class="col-12">
               <div class="form-floating mb-3">
@@ -24,8 +24,8 @@
                   class="form-control"
                   id="validationCustom01"
                   placeholder="name@email.com"
-                  required=""
                   name="loginForm[email]"
+                  required=""
                 />
                 <label for="validationCustom01">Email</label>
                 <div class="invalid-feedback">
@@ -43,8 +43,8 @@
                   class="form-control pas"
                   id="validationCustomPas"
                   placeholder="Введите пароль"
-                  required=""
                   name="loginForm[password]"
+                  required=""
                 />
                 <label for="validationCustomPas">Введите пароль</label>
                 <div class="invalid-feedback">
