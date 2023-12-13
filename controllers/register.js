@@ -8,9 +8,12 @@ exports.submit = (req, res, next) => {
     if (error) return next(error);
     if (user) {
       console.log("Такой пользователь в базе уже существует");
+      res.redirect("/");
     } else {
       User.create(req.body, (err) => {
         if (err) return next(err);
+        req.session.userEmail = req.body.dataForm.email;
+        req.session.userName = req.body.dataForm.name;
       });
     }
     res.redirect("/");

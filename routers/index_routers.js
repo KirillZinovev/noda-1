@@ -10,7 +10,8 @@ const index = require("../controllers/index");
 
 router.get("/", entries.list);
 
-// router.post("/entry", entry.post);
+router.post("/entry", entries.form);
+router.post("/post", entries.submit);
 
 router.get("/register", register.form);
 router.post("/register", register.submit);
@@ -21,6 +22,6 @@ router.post("/login", login.submit);
 // router.get("/post", post.form);
 // router.post("/post", post.submit);
 
-// router.get("/logout", logout);
+router.get("/logout", login.logout);
 
 module.exports = router;
