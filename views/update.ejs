@@ -11,9 +11,9 @@
     <div class="container">
       <%- include ('./partials/menu') %>
       <h1><%= title %></h1>
-      <%- include ('./partials/messages') %>
-      <p>Заполните форму ниже чтобы добавить новый пост</p>
-      <form action="/post" method="post">
+      <%#- include ('./partials/messages') %>
+      <p>Заполните форму ниже чтобы изменить пост</p>
+      <form method="post" action="/update/<%= entry.id %>?_method=PUT>">
         <div class="mb-3">
           <label for="z" class="form-label">Title</label>
           <input
@@ -22,17 +22,15 @@
             name="entry[title]"
             id="z"
             aria-describedby="helpId"
+            value="<%= entry.title %>"
             placeholder="Title"
           />
         </div>
         <div class="mb-3">
           <label for="s" class="form-label">Текст заметки</label>
-          <textarea
-            class="form-control"
-            name="entry[content]"
-            id="s"
-            rows="3"
-          ></textarea>
+          <textarea class="form-control" name="entry[content]" id="s" rows="3">
+<%= entry.content %></textarea
+          >
         </div>
         <button type="submit" value="Post" class="btn btn-primary">
           Submit
